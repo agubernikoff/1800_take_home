@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import AutocompleteOptions from "./AutocompleteOptions";
 import { postsActions } from "./store/posts-slice";
 
 function Search() {
-  const posts = useSelector((state) => state.posts.posts);
-
-  const options = [...posts].map((p) => (
-    <option key={p.id}>
-      {p.title
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ")}
-    </option>
-  ));
-
   const dispatch = useDispatch();
 
   const [searchText, setSearchText] = useState("");
@@ -31,7 +21,7 @@ function Search() {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       ></input>
-      <datalist id="options">{options}</datalist>
+      <AutocompleteOptions />
     </div>
   );
 }
