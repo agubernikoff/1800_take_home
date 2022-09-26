@@ -1,8 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { postsActions } from "./store/posts-slice";
 
 function Post({ post }) {
+  const dispatch = useDispatch();
+
   const nav = useNavigate();
+
+  function handleClick() {
+    dispatch(postsActions.setClickedPost(post));
+    nav("/edit");
+  }
   return (
     <div className="post">
       <h2>
@@ -13,7 +22,7 @@ function Post({ post }) {
       </h2>
       <p>{post.body}</p>
       <p>By User {post.userId}</p>
-      <button onClick={() => nav("/edit")}>Edit</button>
+      <button onClick={handleClick}>Edit</button>
     </div>
   );
 }
