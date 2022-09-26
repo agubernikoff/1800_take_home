@@ -7,9 +7,20 @@
 body {
   background: var(--primary-color);
 }
+button {
+  cursor: pointer;
+  color: var(--tertiary-color);
+  background: var(--primary-color);
+  border-color: var(--tertiary-color);
+}
+
+.edit-a-post-btn {
+  margin: 2em auto 0;
+  width: fit-content;
+}
 
 .search-container {
-  margin: 5em auto;
+  margin: 3em auto 3em;
   width: fit-content;
   color: var(--tertiary-color);
   background: var(--secondary-color);
@@ -45,9 +56,6 @@ body {
   text-decoration: underline;
 }
 .post > button {
-  cursor: pointer;
-  color: var(--tertiary-color);
-  background: var(--primary-color);
   width: fit-content;
   margin: 1em auto;
 }

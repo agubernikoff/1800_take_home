@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { postsActions } from "./store/posts-slice";
 import "./App.css";
 import Home from "./Home";
+import EditForm from "./EditForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/edit" element={<EditForm />} />
       </Routes>
     </div>
   );

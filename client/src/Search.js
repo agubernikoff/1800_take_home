@@ -17,7 +17,7 @@ function Search() {
       <input
         type="search"
         list="options"
-        size="70"
+        size="73"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       ></input>

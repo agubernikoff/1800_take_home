@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Post({ post }) {
+  const nav = useNavigate();
   return (
     <div className="post">
       <h2>
@@ -11,7 +13,7 @@ function Post({ post }) {
       </h2>
       <p>{post.body}</p>
       <p>By User {post.userId}</p>
-      <button>Edit</button>
+      <button onClick={() => nav("/edit")}>Edit</button>
     </div>
   );
 }
