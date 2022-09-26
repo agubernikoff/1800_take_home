@@ -11,6 +11,7 @@ function Post({ post }) {
       </h2>
       <p>{post.body}</p>
       <p>By User {post.userId}</p>
+      <button>Edit</button>
     </div>
   );
 }

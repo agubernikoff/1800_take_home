@@ -1,7 +1,7 @@
 :root {
   --primary-color: rgb(0, 27, 6);
-  --secondary-color: rgb(31, 116, 49);
-  --tertiary-color: rgb(118, 170, 129);
+  --secondary-color: rgb(21, 68, 31);
+  --tertiary-color: rgb(103, 231, 131);
 }
 
 body {
@@ -12,10 +12,14 @@ body {
   margin: 5em auto;
   width: fit-content;
   color: var(--tertiary-color);
+  background: var(--secondary-color);
+  height: 1.25em;
+  padding: 0.5em;
+  border: 1px solid var(--tertiary-color);
 }
 .search-container > input {
-  background: var(--tertiary-color);
-  color: var(--primary-color);
+  color: var(--tertiary-color);
+  background: var(--primary-color);
 }
 
 .posts-container {
@@ -39,4 +43,11 @@ body {
 }
 .post > h2 {
   text-decoration: underline;
+}
+.post > button {
+  cursor: pointer;
+  color: var(--tertiary-color);
+  background: var(--primary-color);
+  width: fit-content;
+  margin: 1em auto;
 }
