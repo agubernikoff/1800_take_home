@@ -7,4 +7,4 @@ const postsRouter = require("./routes/posts");
 
 app.use("/posts", postsRouter);
 
-app.listen(3000);
+app.listen(3000, console.log("server started"));
