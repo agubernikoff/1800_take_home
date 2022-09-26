@@ -18,6 +18,51 @@ button {
   margin: 2em auto 0;
   width: fit-content;
 }
+.form-container {
+  width: 60%;
+  height: 60vh;
+  margin: 5em auto;
+  background: var(--secondary-color);
+  border: 1px solid var(--tertiary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.form-container > h1 {
+  color: var(--tertiary-color);
+}
+.form-container > form {
+  width: fit-content;
+  color: var(--tertiary-color);
+  display: flex;
+  flex-direction: column;
+}
+.body-input-container {
+  margin: 3em auto;
+  display: flex;
+  justify-content: space-between;
+}
+.form-container > form > div > input,
+.body-input-container > textarea {
+  background: var(--primary-color);
+  color: var(--tertiary-color);
+  font-family: Helvetica;
+}
+.form-container > form > button {
+  width: 33%;
+  margin: auto;
+}
+.form-btn-container {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  justify-content: space-around;
+}
+.form-container > p {
+  text-align: center;
+  color: var(--tertiary-color);
+}
 
 .search-container {
   margin: 3em auto 3em;

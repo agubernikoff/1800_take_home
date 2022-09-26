@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { postsActions } from "./store/posts-slice";
 
-function Search({ state, setter }) {
+function Search({ state, setter, placeholder }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,6 +14,7 @@ function Search({ state, setter }) {
       list="options"
       size="73"
       value={state}
+      placeholder={placeholder}
       onChange={(e) => setter(e.target.value)}
     ></input>
   );

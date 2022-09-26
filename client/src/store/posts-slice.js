@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const postsSlice = createSlice({
   name: "posts",
-  initialState: { posts: [], searchResults: [] },
+  initialState: { posts: [], searchResults: [], clickedPost: null },
   reducers: {
     setPosts(state, action) {
       state.posts = action.payload;
@@ -14,6 +14,16 @@ const postsSlice = createSlice({
       );
       if (!searchText) state.searchResults = [];
       else state.searchResults = filtered;
+    },
+    setClickedPost(state, action) {
+      state.clickedPost = action.payload;
+    },
+    editPost(state, action) {
+      const updatedPost = action.payload;
+      const filtered = state.posts.filter((p) => p.id !== updatedPost.id);
+      const updatedPosts = [...filtered, updatedPost];
+      const sorted = updatedPosts.sort((a, b) => a.id - b.id);
+      state.posts = sorted;
     },
   },
 });
