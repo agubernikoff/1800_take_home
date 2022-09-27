@@ -9,14 +9,16 @@ function EditForm() {
   const searchResults = useSelector((state) => state.posts.searchResults);
   const clickedPost = useSelector((state) => state.posts.clickedPost);
 
+  const dispatch = useDispatch();
+
+  const nav = useNavigate();
+
   const [title, setTitle] = useState(clickedPost ? clickedPost.title : "");
   const [body, setBody] = useState(clickedPost ? clickedPost.body : "");
   const id = useRef();
   const userId = useRef();
 
   const [error, setError] = useState("");
-
-  console.log(title, body, id, userId);
 
   useEffect(() => {
     if (searchResults[0] && title.toLowerCase() === searchResults[0].title) {
@@ -29,10 +31,6 @@ function EditForm() {
       userId.current = null;
     }
   }, [clickedPost, searchResults, title]);
-
-  const dispatch = useDispatch();
-
-  const nav = useNavigate();
 
   function handleCancel(e) {
     e.preventDefault();
