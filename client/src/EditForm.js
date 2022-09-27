@@ -23,12 +23,12 @@ function EditForm() {
       setBody(searchResults[0].body);
       id.current = searchResults[0].id;
       userId.current = searchResults[0].userId;
-    } else if (title === "") {
+    } else if (title === "" && !clickedPost) {
       setBody("");
       id.current = null;
       userId.current = null;
     }
-  }, [searchResults, title]);
+  }, [clickedPost, searchResults, title]);
 
   const dispatch = useDispatch();
 
@@ -36,6 +36,7 @@ function EditForm() {
 
   function handleCancel(e) {
     e.preventDefault();
+    dispatch(postsActions.setClickedPost(null));
     nav("/");
   }
 
@@ -54,6 +55,7 @@ function EditForm() {
       updatedPost.userId
     ) {
       dispatch(postsActions.editPost(updatedPost));
+      dispatch(postsActions.setClickedPost(null));
       nav("/");
     } else {
       setError(
