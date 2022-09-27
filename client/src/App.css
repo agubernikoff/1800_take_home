@@ -20,7 +20,7 @@ button {
 }
 .form-container {
   width: 60%;
-  height: 60vh;
+  height: 62vh;
   margin: 5em auto;
   background: var(--secondary-color);
   border: 1px solid var(--tertiary-color);
