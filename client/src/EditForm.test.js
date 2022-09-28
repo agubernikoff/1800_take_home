@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import store from "./store/store";
 import { postsActions } from "./store/posts-slice";
 import EditForm from "./EditForm";
+import Post from "./Post";
 
 const fakePosts = [
   {
@@ -131,4 +132,54 @@ test("the input fields act as controlled inputs", () => {
 
   expect(titleInput.value).toBe("title");
   expect(bodyInput.value).toBe("body");
+});
+
+test("the edit form should render with blank inputs if there is no clicked post", () => {
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <EditForm />
+      </BrowserRouter>
+    </Provider>
+  );
+  const titleInput = screen.getByPlaceholderText(
+    /Enter a complete title or choose from the autcomplete list to select a post to edit/
+  );
+  const bodyInput = screen.getByTestId(/body/);
+
+  expect(titleInput.value).toEqual("");
+  expect(bodyInput.value).toEqual("");
+});
+
+test("if a post is clicked the edit form should render with the post's information", () => {
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Post post={fakePosts[0]} />
+      </BrowserRouter>
+    </Provider>
+  );
+
+  const post = screen.getByTestId(/post/);
+  const editAPost = post.childNodes[post.childNodes.length - 1];
+  act(() => {
+    editAPost.click();
+  });
+
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <EditForm />
+      </BrowserRouter>
+    </Provider>
+  );
+  const titleInput = screen.getByPlaceholderText(
+    /Enter a complete title or choose from the autcomplete list to select a post to edit/
+  );
+  const bodyInput = screen.getByTestId(/body/);
+
+  expect(mockedUsedNavigate).toHaveBeenCalled();
+  expect(store.getState().posts.clickedPost).toEqual(fakePosts[0]);
+  expect(titleInput.value).toEqual(fakePosts[0].title);
+  expect(bodyInput.value).toEqual(fakePosts[0].body);
 });
