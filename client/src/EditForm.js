@@ -21,7 +21,10 @@ function EditForm() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (searchResults[0] && title.toLowerCase() === searchResults[0].title) {
+    if (
+      searchResults[0] &&
+      title.toLowerCase() === searchResults[0].title.toLowerCase()
+    ) {
       setBody(searchResults[0].body);
       id.current = searchResults[0].id;
       userId.current = searchResults[0].userId;
@@ -64,7 +67,7 @@ function EditForm() {
   }
 
   return (
-    <div className="form-container">
+    <div className="form-container" data-testid="editForm">
       <h1>Edit A Post</h1>
       <form>
         <div>
@@ -79,6 +82,7 @@ function EditForm() {
           <label>BODY: </label>
           <textarea
             type="text"
+            data-testid="body"
             cols="71"
             rows="10"
             value={body}

@@ -13,7 +13,7 @@ function Post({ post }) {
     nav("/edit");
   }
   return (
-    <div className="post">
+    <div className="post" data-testid="post">
       <h2>
         {post.title
           .split(" ")

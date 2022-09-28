@@ -15,7 +15,7 @@ function App() {
       .then((posts) => dispatch(postsActions.setPosts(posts)));
   }, [dispatch]);
   return (
-    <div className="App">
+    <div className="App" data-testid="App">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/edit" element={<EditForm />} />

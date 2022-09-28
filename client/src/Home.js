@@ -14,7 +14,7 @@ function Home() {
   const nav = useNavigate();
 
   return (
-    <div className="home">
+    <div className="home" data-testid="home">
       <div className="edit-a-post-btn">
         <button onClick={() => nav("/edit")}>Edit A Post</button>
       </div>
