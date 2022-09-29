@@ -4,6 +4,7 @@ import AutocompleteOptions from "./AutocompleteOptions";
 
 function SearchBar() {
   const [searchText, setSearchText] = useState("");
+
   return (
     <div className="search-container">
       <label>Search for a post by title: </label>

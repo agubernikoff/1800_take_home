@@ -9,6 +9,8 @@ function EditForm() {
   const searchResults = useSelector((state) => state.posts.searchResults);
   const clickedPost = useSelector((state) => state.posts.clickedPost);
 
+  console.log(useSelector((state) => state.posts.posts));
+
   const dispatch = useDispatch();
 
   const nav = useNavigate();
