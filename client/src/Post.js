@@ -8,6 +8,7 @@ function Post({ post }) {
 
   const nav = useNavigate();
 
+  //when the edit button is clicked the clickedPost value is set to that of this post and the site navigates to the edit form
   function handleClick() {
     dispatch(postsActions.setClickedPost(post));
     nav("/edit");

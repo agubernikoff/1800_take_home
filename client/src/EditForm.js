@@ -9,12 +9,12 @@ function EditForm() {
   const searchResults = useSelector((state) => state.posts.searchResults);
   const clickedPost = useSelector((state) => state.posts.clickedPost);
 
-  console.log(useSelector((state) => state.posts.posts));
-
   const dispatch = useDispatch();
 
   const nav = useNavigate();
 
+  //if there is a clicked post the form populates with that post's information
+  //if not the form loads with empty values in the inputs
   const [title, setTitle] = useState(clickedPost ? clickedPost.title : "");
   const [body, setBody] = useState(clickedPost ? clickedPost.body : "");
   const id = useRef();
@@ -22,6 +22,8 @@ function EditForm() {
 
   const [error, setError] = useState("");
 
+  //title input acts as a searchbar so when an existing title is entered the rest of the form, as well as the post id and the userId, will populate with the post's information.
+  //if the title input is cleared the body field and corresponding id and userId values will be reset and the user can search for a new post.
   useEffect(() => {
     if (
       searchResults[0] &&
@@ -37,6 +39,7 @@ function EditForm() {
     }
   }, [clickedPost, searchResults, title]);
 
+  //when the cancel button is clicked the clickedPost value is set back to null and the site navigates back to the homepage
   function handleCancel(e) {
     e.preventDefault();
     dispatch(postsActions.setClickedPost(null));
@@ -44,6 +47,7 @@ function EditForm() {
   }
 
   function handleSubmit(e) {
+    //an updatedPost object is created with the form's input values and the id/userId of either the clickedPost if there is one or the post that is found via searching for the title
     const updatedPost = {
       title: title,
       body: body,
@@ -51,6 +55,7 @@ function EditForm() {
       userId: clickedPost ? clickedPost.userId : userId.current,
     };
     e.preventDefault();
+    //if all of the updatedPost's values are correctly set the posts array is updated in the redux store,the clickedPost is reset, and the site navigates back to the homepage
     if (
       updatedPost.title &&
       updatedPost.body &&
@@ -60,7 +65,9 @@ function EditForm() {
       dispatch(postsActions.editPost(updatedPost));
       dispatch(postsActions.setClickedPost(null));
       nav("/");
-    } else {
+    }
+    //if the all of the updatedPost's values are not correctly set an error message is displayed for 5 seconds
+    else {
       setError(
         "Please make sure you have correctly selected a post to edit and have not left any fields blank"
       );
