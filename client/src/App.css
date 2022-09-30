@@ -33,7 +33,7 @@ button {
   color: var(--tertiary-color);
 }
 .form-container > form {
-  width: fit-content;
+  width: 90%;
   color: var(--tertiary-color);
   display: flex;
   flex-direction: column;
@@ -42,12 +42,14 @@ button {
   margin: 3em auto;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .form-container > form > div > input,
 .body-input-container > textarea {
   background: var(--primary-color);
   color: var(--tertiary-color);
   font-family: Helvetica;
+  width: 90%;
 }
 .form-container > form > button {
   width: 33%;

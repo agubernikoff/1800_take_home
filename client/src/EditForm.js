@@ -92,7 +92,7 @@ function EditForm() {
           <textarea
             type="text"
             data-testid="body"
-            cols="71"
+            // cols="71"
             rows="10"
             value={body}
             onChange={(e) => setBody(e.target.value)}

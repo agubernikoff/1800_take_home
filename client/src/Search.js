@@ -13,7 +13,7 @@ function Search({ state, setter, placeholder }) {
     <input
       type="search"
       list="options"
-      size="73"
+      // size="73"
       value={state}
       placeholder={placeholder}
       onChange={(e) => setter(e.target.value)}
