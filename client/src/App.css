@@ -2,6 +2,8 @@
   --primary-color: rgb(0, 27, 6);
   --secondary-color: rgb(21, 68, 31);
   --tertiary-color: rgb(103, 231, 131);
+  --label-font: 1em;
+  --h2-font: 1.5em;
 }
 
 body {
@@ -12,6 +14,14 @@ button {
   color: var(--tertiary-color);
   background: var(--primary-color);
   border-color: var(--tertiary-color);
+}
+h2 {
+  font-size: var(--h2-font);
+}
+label,
+input,
+p {
+  font-size: var(--label-font);
 }
 
 .edit-a-post-btn {
@@ -38,14 +48,14 @@ button {
   display: flex;
   flex-direction: column;
 }
-.body-input-container {
-  margin: 3em auto;
+.input-container {
+  margin: 1.5em auto;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.form-container > form > div > input,
-.body-input-container > textarea {
+.input-container > input,
+.input-container > textarea {
   background: var(--primary-color);
   color: var(--tertiary-color);
   font-family: Helvetica;
@@ -68,16 +78,24 @@ button {
 
 .search-container {
   margin: 3em auto 3em;
-  width: fit-content;
+  width: 65%;
   color: var(--tertiary-color);
   background: var(--secondary-color);
   height: 1.25em;
   padding: 0.5em;
   border: 1px solid var(--tertiary-color);
 }
-.search-container > input {
+.search-input-container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.search-input-container > input {
   color: var(--tertiary-color);
   background: var(--primary-color);
+  width: 70%;
 }
 
 .posts-container {
@@ -105,4 +123,17 @@ button {
 .post > button {
   width: fit-content;
   margin: 1em auto;
+}
+
+@media screen and (max-width: 954px) {
+  :root {
+    --label-font: 0.8em;
+    --h2-font: 1.3em;
+  }
+}
+@media screen and (max-width: 790px) {
+  :root {
+    --label-font: 0.6em;
+    --h2-font: 1.1em;
+  }
 }

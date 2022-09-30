@@ -7,8 +7,10 @@ function SearchBar() {
 
   return (
     <div className="search-container">
-      <label>Search for a post by title: </label>
-      <Search state={searchText} setter={setSearchText} />
+      <div className="search-input-container">
+        <label>Search for a post by title: </label>
+        <Search state={searchText} setter={setSearchText} />
+      </div>
       <AutocompleteOptions />
     </div>
   );

@@ -79,7 +79,7 @@ function EditForm() {
     <div className="form-container" data-testid="editForm">
       <h1>Edit A Post</h1>
       <form>
-        <div>
+        <div className="input-container">
           <label>TITLE: </label>
           <Search
             state={title}
@@ -87,7 +87,7 @@ function EditForm() {
             placeholder="Enter a complete title or choose from the autcomplete list to select a post to edit"
           />
         </div>
-        <div className="body-input-container">
+        <div className="input-container">
           <label>BODY: </label>
           <textarea
             type="text"
