@@ -13,6 +13,10 @@ function Post({ post }) {
     dispatch(postsActions.setClickedPost(post));
     nav("/edit");
   }
+
+  function handleDelete() {
+    dispatch(postsActions.deletePost(post));
+  }
   return (
     <div className="post" data-testid="post">
       <h2>
@@ -24,6 +28,7 @@ function Post({ post }) {
       <p>{post.body}</p>
       <p>By User {post.userId}</p>
       <button onClick={handleClick}>Edit</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }

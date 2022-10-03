@@ -25,6 +25,15 @@ const postsSlice = createSlice({
       const sorted = updatedPosts.sort((a, b) => a.id - b.id);
       state.posts = sorted;
     },
+    deletePost(state, action) {
+      const deletedPost = action.payload;
+      const filtered = state.posts.filter((p) => p.id !== deletedPost.id);
+      const filteredSearch = state.searchResults.filter(
+        (p) => p.id !== deletedPost.id
+      );
+      state.posts = filtered;
+      state.searchResults = filteredSearch;
+    },
   },
 });
 
